@@ -6,13 +6,18 @@
  * @returns {number} Fibonacci number or 0 if any arguments are not proper
  */
 function fibonacci(n) {
-    if (typeof n !== "number" || n < 0) {
-        throw new Error();
-    }
+    let nThFib;
 
-    if (n < 2) {
-        return n;
+    if (n >= 0) {
+        //if nothing is here... then the result will be undefined
+        if( n<2) {
+            nThFib = n;
+        } else {
+            nThFib = fibonacci(n-2) + fibonacci(n-1);
+        }
+    } else {
+        nThFib = 0;
     }
-    return fibonacci(n-2) + fibonacci(n-1);
+    return nThFib;
 }
 module.exports = fibonacci;
